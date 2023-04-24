@@ -1,0 +1,17 @@
+.item-count-decrement {
+    background-color: #ffcccc;
+    color: rgb(250, 77, 77);
+  }
+  
+  .item-count-increment {
+    background-color: #ccffcc;
+    color: rgb(58, 149, 58);
+  }
+  
+  .item-count-button:hover {
+    opacity: 0.8;
+  }
+    
+  .item-agree {
+    color: black;
+  }
