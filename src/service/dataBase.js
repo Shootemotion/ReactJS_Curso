@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, getDoc, writeBatch, query, orderBy, where } from "firebase/firestore";
+import { getFirestore, collection, getDocs, doc, getDoc, writeBatch, query, orderBy, where, addDoc } from "firebase/firestore";
 import baseDatos from "../baseDatos/baseDatos";
+
 
 
 
@@ -48,6 +49,12 @@ return docsData
 
 
 
+export async function createOrder(order) {
+  const collectionOrdersRef = collection(db, "orders");
+  const response = await addDoc(collectionOrdersRef, order);
+  return response.id; 
+}
+
 
 
 
@@ -57,8 +64,6 @@ const docRef = doc(db, "baseDatos",idURL)
 const docSnap = await getDoc(docRef)
 return {id: docSnap.id, ...docSnap.data()}
 }
-
-
 
 
 
