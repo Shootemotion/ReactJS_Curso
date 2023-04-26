@@ -60,7 +60,7 @@
 
   
   button[type="submit"]:hover {
-    background-color: #0077b3;
+    background-color: #035d8a;
   }
   
   button[type="submit"]:active {
@@ -68,6 +68,20 @@
   }
   
   button[type="submit"]:focus {
+    outline: none;
+  }
+  
+  
+  
+  button[type="cancel"]:hover {
+    background-color: #9b0808;
+  }
+  
+  button[type="cancel"]:active {
+    transform: translateY(1px);
+  }
+  
+  button[type="cancel"]:focus {
     outline: none;
   }
   

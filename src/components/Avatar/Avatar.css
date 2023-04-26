@@ -1,0 +1,13 @@
+.avatar-container{
+    width: 10%;
+ display: flex;
+flex-flow: column;
+justify-content: center;
+align-items: center;
+
+}
+.avatar-container img{
+    width: 100%;
+    margin-bottom: 2%;
+}
+

@@ -3,28 +3,32 @@ import "./ListadoEnCarrito.css"
 import { cartContext } from '../../storage/cartContex';
 import { useNavigate } from "react-router-dom";
 import { createOrder } from "../../service/dataBase";
-import LoginForm from "../Loggin/Loggin";
 import Boton from "../Boton/Boton";
+import LoginForm from "../Loggin/Loggin";
+
 
 function ListadoEnCarrito() {
-  const context = useContext(cartContext);
-  const { cart, getTotalPrice, removeItem } = context;
- const precioTotal = getTotalPrice(cart)
+const context = useContext(cartContext);
+const { cart, getTotalPrice, removeItem } = context;
+const precioTotal = getTotalPrice(cart)
+const navigateTo = useNavigate();
 
-  const navigateTo = useNavigate();
 
-  async function handleCheckout(userData) {
-    const order = {
-      items: cart,
-      buyer: userData,
-      total: precioTotal,
-      date: new Date(),
-    };
+async function handleCheckout(userData) {
+const order = {
+  items: cart,
+  buyer: userData,
+  total: precioTotal,
+  date: new Date(),
+};
 
-    const orderId = await createOrder(order);
-    console.log(orderId)
-    // navigateTo(`/checkout/${orderId}`);
-  }
+const orderId = await createOrder(order);
+console.log(orderId)
+// navigateTo(`/checkout/${orderId}`);
+}
+
+
+
 
   return (
     <>
@@ -65,6 +69,7 @@ function ListadoEnCarrito() {
         <h4>{`El precio total  es  $${precioTotal.toFixed(2)}`}</h4>
       </div>
       <LoginForm onLogin={handleCheckout} />
+  
       </div>
     </>
   );

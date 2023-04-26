@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 
 function CartWidget(props) {
 
-  const { cart } = useContext(cartContext);
 
+
+    const { cart } = useContext(cartContext);
 
   
   return (

@@ -6,34 +6,29 @@ import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetailContainer.css';
 import { cartContext, } from '../../storage/cartContex';
 
-
 function ItemDetailContainer(props) {
   
 const [producto, setProducto] = useState([]);
-
 const {id} = useParams()
 const {addItem, getCountInCarrito} = useContext(cartContext)
+const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+    useEffect(
+        ()=>{
+            getSingleProduct(id).then((respuesta)=> {
+                console.log("promesa",respuesta)
+                setProducto(respuesta)
+        })
+    },[id])
 
 
-useEffect(
-    ()=>{
-        getSingleProduct(id).then((respuesta)=> {
-            console.log("promesa",respuesta)
-            setProducto(respuesta)
-    })
-},[id])
+    function handleAddToCart(count){
+            addItem(producto, count);
 
-
-function handleAddToCart(count){
-    
-    addItem(producto,count )
-    
-
-}
-
-
-
-const countCart = getCountInCarrito(producto.id) 
+      }
+      
+ 
+    const countCart = getCountInCarrito(producto.id) 
 
 
     return (

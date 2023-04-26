@@ -3,6 +3,9 @@ import './NavBar.css';
 import Logo from '../../img/Ecommerce.JPG';
 import 'typeface-roboto';
 import CartWidget from '../CartWidget/CartWidget.jsx'
+import Avatar from '../Avatar/Avatar';
+
+
 
 
 function NavBar() {
@@ -37,7 +40,10 @@ function NavBar() {
           </Link>
         </ul>
       </nav>
+      <Avatar imageUrl="https://i.ibb.co/1TKL2HQ/Cartoon-Avatar-PNG-Image-Transparent.png" name="Test Name" />
       <CartWidget />
+
+
       </div>
     );
   }

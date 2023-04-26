@@ -1,4 +1,3 @@
-
 import "./Loggin.css"
 import React, { useState } from "react";
 
@@ -7,7 +6,6 @@ export default function LoginForm({ onLogin }) {
     username: "",
     email: "",
     phone: "",
-    password: "",
   });
 
   function handleInputChange(evt) {
@@ -17,7 +15,6 @@ export default function LoginForm({ onLogin }) {
     newLoginData[inputName] = inputText;
     setLoginData(newLoginData);
   }
-  
 
   function onSubmit(evt) {
     evt.preventDefault();
@@ -28,15 +25,16 @@ export default function LoginForm({ onLogin }) {
     evt.preventDefault();
     setLoginData({
       username: "",
-      password: "",
+      email: "",
+      phone: "",
     });
   }
 
   return (
-   
     <div className="login-container">
-      <h1>Inicia sesión para continuar 🔐</h1>
+      <h1>Completa tus datos</h1>
       <form onSubmit={onSubmit}>
+
         <div className="form-group">
           <label className="label-input">Nombre de usuario</label>
           <input
@@ -47,24 +45,39 @@ export default function LoginForm({ onLogin }) {
             onChange={handleInputChange}
           />
         </div>
+
         <div className="form-group">
-          <label className="label-input">Contraseña</label>
+          <label className="label-input">Correo electrónico</label>
           <input
-            value={loginData.password}
-            name="password"
-            type="password"
+            value={loginData.email}
+            name="email"
+            type="email"
             required
             onChange={handleInputChange}
           />
         </div>
+
+        <div className="form-group">
+          <label className="label-input">Teléfono</label>
+          <input
+            value={loginData.phone}
+            name="phone"
+            type="text"
+            required
+            onChange={handleInputChange}
+          />
+        </div>
+        
+      
         <div className="form-button">
-        <button onClick={onSubmit} type="submit">
-          Iniciar sesión
-        </button>
-        <button onClick={clearFormData} type="cancel">Cancelar</button>
+          <button onClick={onSubmit} type="submit">
+            Enviar
+          </button>
+          <button onClick={clearFormData} type="cancel">
+            Cancelar compra
+          </button>
         </div>
       </form>
-      </div>
- 
+    </div>
   );
 }

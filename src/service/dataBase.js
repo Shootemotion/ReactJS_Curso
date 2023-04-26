@@ -55,7 +55,15 @@ export async function createOrder(order) {
   return response.id; 
 }
 
-
+export async function createUser(user) {
+  try {
+    const usersRef = collection(db, "users");
+    const newUser = await addDoc(usersRef, user);
+    console.log("Nuevo usuario agregado con ID: ", newUser.id);
+  } catch (error) {
+    console.error("Error al agregar usuario: ", error);
+  }
+}
 
 
 // Busco el producto con el IdURL- ese es defindo por el UseParam en el comp ItemDetailContainer
