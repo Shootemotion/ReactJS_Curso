@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { createOrder } from "../../service/dataBase";
 import Boton from "../Boton/Boton";
 import LoginForm from "../Loggin/Loggin";
+import swal from "sweetalert";
 
 
 function ListadoEnCarrito() {
@@ -23,6 +24,12 @@ const order = {
 };
 
 const orderId = await createOrder(order);
+swal({
+  title: "¡Muchas Gracias!",
+  text: `Se ha agregado la referencia  ${orderId} para seguimiento de tu compra.`,
+  icon: "success",
+  button: "Seguir comprando",
+});
 console.log(orderId)
 // navigateTo(`/checkout/${orderId}`);
 }
@@ -49,7 +56,7 @@ console.log(orderId)
           {cart.map((item) => (
             <tr key={item.id} className="cartList_row">
               <td>
-                <img height={50} src={item.image} alt={item.title} />
+                <img  src={item.image} alt={item.title} />
               </td>
               <td>{item.title}</td>
               <td>$ {item.price}</td>

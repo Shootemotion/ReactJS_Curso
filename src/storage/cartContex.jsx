@@ -1,5 +1,6 @@
 
 import { createContext,   useState } from 'react';
+import swal from 'sweetalert';
 
 const cartContext = createContext({cart:[]})
 const Provider = cartContext.Provider;
@@ -44,6 +45,12 @@ function CartProvider(props){
         function getTotalPrice() {
             return cart.reduce((total, item) => total + parseFloat(item.price) * parseInt(item.count), 0);
           }
+
+      
+
+        function getTotalPoduct() {
+            return cart.reduce((total, item) => total + parseInt(item.count), 0);
+          }
           
 
 
@@ -57,7 +64,14 @@ function CartProvider(props){
                 // Eliminar el producto por completo si la cantidad es > 1
                 newCart.splice(itemIndex, 1);
             }
+            
             setCart(newCart);
+            swal({
+              title: 'Producto eliminado',
+              text: 'El producto ha sido eliminado del carrito',
+              icon: 'success',
+              button: 'Aceptar'
+            });
           }
         }
         
@@ -65,7 +79,7 @@ function CartProvider(props){
 
 
 return(
-<Provider value={{cart,addItem,estaEnElCarrito,removeItem,getTotalPrice, getCountInCarrito }}>
+<Provider value={{cart,addItem,estaEnElCarrito,getTotalPoduct,removeItem,getTotalPrice, getCountInCarrito }}>
 {props.children}
 </Provider>
 )

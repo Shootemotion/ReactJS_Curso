@@ -3,15 +3,15 @@
     display: flex;
     flex-flow: column;
     justify-content: center;
- 
-    margin: 5rem;
+    margin: 6rem;
 }
   
 .cartList {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 16px;
+    margin: 2px 0;
+    font-size: 1.1rem;
+   
   }
   
   .cartList_head {
@@ -19,28 +19,35 @@
   }
   
   .cartList_row td:nth-child(2) {
-    font-size: 1rem;
+    font-size: 1.5rem;
+ 
   }
+
   
-  .cartList_row {
-    border-bottom: 1px solid #ddd;
-    height: 5rem;
+  .cartList td{
+    text-align: center;
+    padding: 2px;
+   height: 7rem;
+   border: 1px solid rgba(0, 0, 0, 0.192);
   }
-  
-  .cartList td,
-  .cartList th {
-    text-align: left;
-    padding: 8px;
+
+
+  .cartList img {
+
+  height: 120%;
   }
   
   .cartList th {
     font-weight: bold;
+    text-align: center;
+    padding: 2px;
+    height: 3rem;
+    border: 1px solid rgba(0, 0, 0, 0.192);
   }
   
-  .cartList img {
-    max-height: 80px;
-    margin-right: 10px;
-  }
+  
+  
+
   
   .cartList_detail {
     margin-top: 20px;

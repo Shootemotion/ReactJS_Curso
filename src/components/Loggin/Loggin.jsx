@@ -19,6 +19,7 @@ export default function LoginForm({ onLogin }) {
   function onSubmit(evt) {
     evt.preventDefault();
     onLogin(loginData);
+    
   }
 
   function clearFormData(evt) {
@@ -46,6 +47,8 @@ export default function LoginForm({ onLogin }) {
           />
         </div>
 
+        
+
         <div className="form-group">
           <label className="label-input">Correo electrónico</label>
           <input
@@ -71,10 +74,10 @@ export default function LoginForm({ onLogin }) {
       
         <div className="form-button">
           <button onClick={onSubmit} type="submit">
-            Enviar
+            COMPRAR!
           </button>
           <button onClick={clearFormData} type="cancel">
-            Cancelar compra
+            CANCELAR
           </button>
         </div>
       </form>

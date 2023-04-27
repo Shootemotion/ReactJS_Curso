@@ -6,16 +6,16 @@ import { Link } from 'react-router-dom';
 
 function CartWidget(props) {
 
+  const { cart ,getTotalPoduct} = useContext(cartContext);
+const qProductos = getTotalPoduct(cart)
 
-
-    const { cart } = useContext(cartContext);
-
-  
   return (
     <div className="carrito">
       <Link to="/Cart" className="carrito">
-      <img className="imgCarrito" src={carritoImg} alt="Carrito de compras" />
-      <span >{cart.length}</span>
+        <div className="carrito-wrapper">
+          <img className="imgCarrito" src={carritoImg} alt="Carrito de compras" />
+          <span>{qProductos}</span>
+        </div>
       </Link>
     </div>
   );

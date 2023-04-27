@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetailContainer.css';
 import { cartContext, } from '../../storage/cartContex';
+import swal from 'sweetalert';
 
 function ItemDetailContainer(props) {
   
@@ -16,15 +17,19 @@ const [isAuthenticated, setIsAuthenticated] = useState(false)
     useEffect(
         ()=>{
             getSingleProduct(id).then((respuesta)=> {
-                console.log("promesa",respuesta)
                 setProducto(respuesta)
         })
     },[id])
 
 
-    function handleAddToCart(count){
-            addItem(producto, count);
-
+    function handleAddToCart(count) {
+        addItem(producto, count);
+        swal({
+          title: "¡Producto agregado!",
+          text: `Se ha agregado ${count} unidad(es) de ${producto.title} al carrito.`,
+          icon: "success",
+          button: "Seguir comprando",
+        });
       }
       
  

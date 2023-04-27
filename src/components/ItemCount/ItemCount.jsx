@@ -27,19 +27,12 @@ function ItemCount(props) {
   }
 }
 useEffect(() => {
-  console.log("CONTADOR:", count);
-  console.log("el Stok esta:"+stockFinished)
-  console.log("Stok es:"+props.stock)
 }, [count]);
   
 const handleDecrement = () => {
   if (count > 0) {
     setCount(count - 1);
-    console.log("el Stok esta:" + stockFinished);
-    console.log("Stok " + props.stock);
-    console.log("CONTADOR:" + count);
-
-    if (stockFinished && count <= props.stock) {
+     if (stockFinished && count <= props.stock) {
       setStockFinished(false);
     }
   }

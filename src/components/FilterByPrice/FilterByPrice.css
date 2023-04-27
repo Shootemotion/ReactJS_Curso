@@ -1,0 +1,30 @@
+.filter-by-price-container {
+    margin-top: 20px;
+  }
+  
+  .filter-by-price-selectors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter-by-price-order {
+    display: flex;
+    align-items: center;
+  }
+  
+  .filter-by-price-order label {
+    margin-right: 10px;
+  }
+  
+  .filter-by-price-range label {
+    margin-right: 10px;
+  }
+  
+  .filter-by-price-range input {
+    width: 100px;
+    margin-right: 10px;
+  }
+  
